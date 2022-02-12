@@ -46,16 +46,9 @@ module.exports = welcome = async (Akira, anu) => {
                groupName = mdata.subject
                 let v = Akira.contacts[num] || { notify: num.replace(/@.+/, '') }
                 anu_user = v.vname || v.notify || num.split('@')[0]
-              teks = `ʜᴀʟʟᴏ ᴋᴀᴋ *@${mem.split('@')[0]}*
-◧ ɪɴᴛʀᴏ ᴅᴜʟᴜ
-*□* ɴᴀᴍᴀ :
-*□* ᴜᴍᴜʀ :
-*□* ʜᴏʙʙʏ :
-*□* ɢᴇɴᴅᴇʀ :
-*□* ᴀꜱᴀʟ ᴋᴏᴛᴀ :
-⌬━━━━━━━━━━━⌬`
+              teks = `Haloo *@${mem.split('@')[0]}* selamat datang di grup *${groupName}* semoga betah\n\nkamu bisa langsung berkomunikasi denganku dengan cara ketik .menu`
               buff = await getBuffer(pic)
-               Akira.sendMessage(mdata.id, { contentText: `${teks}`, footerText: `ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ *${groupName}*`, buttons: [{buttonId: `.selamatdatang`,buttonText:{displayText: 'WELCOME KAK👋'},type:1}],headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: buff, contextInfo: {"mentionedJid": [num]}}}, 'buttonsMessage')
+               Akira.sendMessage(mdata.id, { contentText: `${teks}`, footerText: `sylbot`, buttons: [{buttonId: `.selamatdatang`,buttonText:{displayText: 'WELCOME'},type:1}],headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: buff, contextInfo: {"mentionedJid": [num]}}}, 'buttonsMessage')
 		}
             if (anu.action == 'remove' && !mem.includes(Akira.user.jid)) {
             if (!welkom.includes(anu.jid)) return
@@ -65,9 +58,9 @@ module.exports = welcome = async (Akira, anu) => {
                 anu_user = w.vname || w.notify || num.split('@')[0]
                 memeg = mdata.participants.length
                 groupName = mdata.subject
-                out = `ꜱᴇʟᴀᴍᴀᴛ ᴛɪɴɢɢᴀʟ ᴋᴀᴡᴀɴ @${num.split('@')[0]}`
+                out = `selamat tinggal\n*@${num.split('@')[0]}* telah memutuskan untuk keluar dari grup`
                buff = await getBuffer(pic)
-               Akira.sendMessage(mdata.id, { contentText: `${out}`, footerText: `ᴛᴇʟᴀʜ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ɢʀᴏᴜᴘ *${groupName}*`, buttons: [{buttonId: `.bay`,buttonText:{displayText: 'BYE KAK👋'},type:1}],headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: buff, contextInfo: {"mentionedJid": [num]}}}, 'buttonsMessage')
+               Akira.sendMessage(mdata.id, { contentText: `${out}`, footerText: `sylbot`, buttons: [{buttonId: `.bay`,buttonText:{displayText: 'BYE KAK👋'},type:1}],headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: buff, contextInfo: {"mentionedJid": [num]}}}, 'buttonsMessage')
             }
 		} catch (e) {
 			console.log('Error : %s', color(e, 'pink'))
